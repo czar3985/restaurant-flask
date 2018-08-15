@@ -4,7 +4,8 @@
 </head>
 <body>
 
-  <h1>Edit menu item</h1>
+  <h1>{{restaurantName}}</h1>
+  <h2>Edit menu item</h2>
 
   <form action="{{url_for('editMenuItem', restaurant_id = menuItem.restaurant_id, menu_id = menuItem.id )}}" method='POST'>
     <dl>

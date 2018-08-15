@@ -4,10 +4,11 @@
 </head>
 <body>
 
-  <h1>Create a new menu item</h1>
+  <h1>{{restaurant.name}}</h1>
+  <h2>Create a new menu item</h2>
 
   <div class='pane'>
-    <form action="{{url_for('newMenuItem', restaurant_id=restaurant_id )}}" method='POST'>
+    <form action="{{url_for('newMenuItem', restaurant_id=restaurant.id )}}" method='POST'>
 
       <dl>
         <dt><p>Name:</p></dt>

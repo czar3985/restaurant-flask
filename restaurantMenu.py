@@ -131,7 +131,8 @@ def newMenuItem(restaurant_id):
         return redirect(url_for('showMenu', restaurant_id = restaurant_id))
 
     else:
-        return render_template('newmenuitem.html', restaurant_id = restaurant_id)
+        restaurant = session.query(Restaurant).filter_by(id = restaurant_id).one()
+        return render_template('newmenuitem.html', restaurant = restaurant)
 
 
 @app.route('/restaurant/<int:restaurant_id>/menu/<int:menu_id>/edit/', methods=['GET','POST'])
@@ -157,7 +158,8 @@ def editMenuItem(restaurant_id, menu_id):
         return redirect(url_for('showMenu', restaurant_id = restaurant_id))
 
     else:
-        return render_template('editmenuitem.html', menuItem = menuItem)
+        restaurant = session.query(Restaurant).filter_by(id = restaurant_id).one()
+        return render_template('editmenuitem.html', restaurantName = restaurant.name, menuItem = menuItem)
 
 
 @app.route('/restaurant/<int:restaurant_id>/menu/<int:menu_id>/delete/', methods=['GET','POST'])
@@ -172,7 +174,8 @@ def deleteMenuItem(restaurant_id, menu_id):
         return redirect(url_for('showMenu', restaurant_id = restaurant_id))
 
     else:
-        return render_template('deletemenuitem.html', menuItem = menuItem)
+        restaurant = session.query(Restaurant).filter_by(id = restaurant_id).one()
+        return render_template('deletemenuitem.html', restaurantName = restaurant.name, menuItem = menuItem)
 
 
 if __name__ == '__main__':
