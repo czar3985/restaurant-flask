@@ -29,6 +29,7 @@
     <div class="nameAndPrice">
       <p>{{restaurant.name}}</p>
     </div>
+    <a href="{{url_for('showMenu', restaurant_id = restaurant.id)}}">Show Menu</a>
     <div class="editdeletepane">
       <a href="{{url_for('editRestaurant', restaurant_id = restaurant.id)}}">Edit</a>
       <a href="{{url_for('deleteRestaurant', restaurant_id = restaurant.id)}}">Delete</a>
