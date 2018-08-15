@@ -13,25 +13,30 @@ DBSession = sessionmaker(bind = engine)
 session = DBSession()
 
 
+#Fake Restaurants
+restaurant = {'name': 'The CRUDdy Crab', 'id': '1'}
+restaurants = [{'name': 'The CRUDdy Crab', 'id': '1'}, {'name':'Blue Burgers', 'id':'2'},{'name':'Taco Hut', 'id':'3'}]
+
+
 @app.route('/')
 @app.route('/restaurant/')
 def showRestaurants():
-    return 'This page will show all my restaurants'
+    return render_template('restaurants.html', restaurants = restaurants)
 
 
 @app.route('/restaurant/new/')
 def newRestaurant():
-    return 'This page will create a new restaurant'
+    return render_template('newrestaurant.html')
 
 
 @app.route('/restaurant/<int:restaurant_id>/edit/')
 def editRestaurant(restaurant_id):
-    return 'This page will edit restaurant %s' % restaurant_id
+    return render_template('editrestaurant.html', restaurant = restaurant)
 
 
 @app.route('/restaurant/<int:restaurant_id>/delete/')
 def deleteRestaurant(restaurant_id):
-    return 'This page will delete restaurant %s' % restaurant_id
+    return render_template('deleterestaurant.html', restaurant = restaurant)
 
 
 @app.route('/restaurant/<int:restaurant_id>/')
