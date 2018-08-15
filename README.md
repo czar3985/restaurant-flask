@@ -24,7 +24,7 @@ _database_setup.py_ will setup the database: _restaurantmenu.db_
 
 _restaurantMenu.py_ will run the web server 
 
-Navigate to port 8080, restaurants page for each restaurant ID in the server PC
+Navigate to port 8080, menu page for each restaurant ID in the server PC
 Ex: http://SERVERPC:5000/restaurants/1/menu
 
 ## Database Structure
@@ -51,6 +51,8 @@ Columns:
 - Create a new menu item for each restaurant
 - Update a menu item 
 - Delete a menu item from the database
+- Provides a JSON API endpoint for each restaurant:
+http://SERVERPC:5000/restaurants/1/menu/JSON
 
 ## To Dos
 
@@ -60,5 +62,5 @@ Columns:
 
 ## Acknowledgement
 
-Created from the Flask framework tutorial of Full Stack Foundations by Udacity.
-_styles.css_ unmodified from the tutorial.
+Coded while following along the Flask framework tutorial of Full Stack Foundations by Udacity.
+_styles.css_ is unmodified from the tutorial.
