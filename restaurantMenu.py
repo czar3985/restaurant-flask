@@ -18,6 +18,8 @@ session = DBSession()
 def showRestaurants():
 
     restaurants = session.query(Restaurant).all()
+    if not restaurants:
+        flash('There are currently no restaurants in the database.')
     return render_template('restaurants.html', restaurants = restaurants)
 
 
@@ -73,7 +75,9 @@ def deleteRestaurant(restaurant_id):
 def showMenu(restaurant_id):
 
     restaurant = session.query(Restaurant).filter_by(id = restaurant_id).one()
-    menuItems = session.query(MenuItem).filter_by(restaurant_id = restaurant_id)
+    menuItems = session.query(MenuItem).filter_by(restaurant_id = restaurant_id).all()
+    if not menuItems:
+        flash('There are currently no menu items for this restaurant.')
     return render_template('menu.html', restaurant=restaurant, items=menuItems)
 
 
@@ -81,7 +85,7 @@ def showMenu(restaurant_id):
 def showMenuJSON(restaurant_id):
 
     restaurant = session.query(Restaurant).filter_by(id = restaurant_id).one()
-    menuItems = session.query(MenuItem).filter_by(restaurant_id = restaurant_id)
+    menuItems = session.query(MenuItem).filter_by(restaurant_id = restaurant_id).all()
     return jsonify(MenuItems = [menuItem.serialize for menuItem in menuItems])
 
 
