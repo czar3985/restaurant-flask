@@ -23,6 +23,13 @@ def showRestaurants():
     return render_template('restaurants.html', restaurants = restaurants)
 
 
+@app.route('/restaurant/JSON/')
+def showRestaurantsJSON():
+
+    restaurants = session.query(Restaurant).all()
+    return jsonify(Restaurants = [restaurant.serialize for restaurant in restaurants])
+
+
 @app.route('/restaurant/new/', methods=['GET','POST'])
 def newRestaurant():
 
