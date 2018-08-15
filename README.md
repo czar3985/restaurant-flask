@@ -24,8 +24,12 @@ _database_setup.py_ will setup the database: _restaurantmenu.db_
 
 _restaurantMenu.py_ will run the web server 
 
-Navigate to port 8080, menu page for each restaurant ID in the server PC
-Ex: http://SERVERPC:5000/restaurant/1/menu
+Navigate to port 5000, 
+
+restaurants page: http://SERVERPC:5000/restaurant/
+
+menu page for each restaurant ID in the server PC
+Ex: http://SERVERPC:5000/restaurant/1/
 
 ## Database Structure
 
@@ -47,13 +51,13 @@ Columns:
 
 ## Features
 
+- View restaurants in the database
+- Edit a restaurant's name
+- Delete a restaurant
+- Add restaurants
 - View menu entries for each restaurant in the database
 - Create a new menu item for each restaurant
 - Update a menu item 
 - Delete a menu item from the database
-- Provides a JSON API endpoint for each restaurant:
+- Provides a JSON API endpoint for each restaurant's menu
 http://SERVERPC:5000/restaurant/1/menu/JSON
-
-## To Dos
-
-- CRUD operations for restaurants
