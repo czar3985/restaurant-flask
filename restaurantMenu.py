@@ -78,7 +78,27 @@ def showMenu(restaurant_id):
     menuItems = session.query(MenuItem).filter_by(restaurant_id = restaurant_id).all()
     if not menuItems:
         flash('There are currently no menu items for this restaurant.')
-    return render_template('menu.html', restaurant=restaurant, items=menuItems)
+
+    appetizers = []
+    entrees = []
+    desserts = []
+    beverages = []
+    for menuItem in menuItems:
+        if menuItem.course == 'Appetizer':
+            appetizers.append(menuItem)
+        elif menuItem.course == 'Entree':
+            entrees.append(menuItem)
+        elif menuItem.course == 'Dessert':
+            desserts.append(menuItem)
+        elif menuItem.course == 'Beverage':
+            beverages.append(menuItem)
+
+    return render_template('menu.html',
+                           restaurant = restaurant,
+                           appetizers = appetizers,
+                           entrees = entrees,
+                           desserts = desserts,
+                           beverages = beverages)
 
 
 @app.route('/restaurant/<int:restaurant_id>/menu/JSON/')
