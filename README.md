@@ -52,12 +52,21 @@ Columns:
 ## Features
 
 - View restaurants in the database
-- Edit a restaurant's name
+- Edit a restaurant
 - Delete a restaurant
 - Add restaurants
 - View menu entries for each restaurant in the database
 - Create a new menu item for each restaurant
 - Update a menu item 
 - Delete a menu item from the database
-- Provides a JSON API endpoint for each restaurant's menu
-http://SERVERPC:5000/restaurant/1/menu/JSON
+- Make use of JSON API endpoints for a list of restaurants, menus for each restaurant and specific menu item
+
+Ex. 
+
+http://SERVERPC:5000/restaurant/JSON, 
+
+http://SERVERPC:5000/restaurant/1/menu/JSON, 
+
+http://SERVERPC:5000/restaurant/1/menu/1/JSON
+
+
