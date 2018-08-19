@@ -1,52 +1,50 @@
-<html>
-<head>
-  <link rel=stylesheet type=text/css href="{{url_for('static', filename='styles.css')}}">
-</head>
-<body>
+{% extends "layout.html" %}
 
-  <h1>{{restaurantName}}</h1>
-  <h2>Edit menu item</h2>
+{% block body %}
 
-  <form action="{{url_for('editMenuItem', restaurant_id = menuItem.restaurant_id, menu_id = menuItem.id )}}" method='POST'>
-    <dl>
-      <dt>Name:</dt>
-      <dd><input type='text' size='30' name='name' placeholder="{{menuItem.name}}"></dd>
+<h1>{{restaurantName}}</h1>
+<h2>Edit menu item</h2>
 
-      <dt>Price:</dt>
-      <dd><input type='text' size='8' name='price' placeholder='{{menuItem.price}}'></dd>
+<form action="{{url_for('editMenuItem', restaurant_id = menuItem.restaurant_id, menu_id = menuItem.id )}}" method='POST'>
+  <dl>
+    <dt>Name:</dt>
+    <dd><input type='text' size='30' name='name' placeholder="{{menuItem.name}}"></dd>
 
-      <dt>Description:</dt>
-      <dd><input type='text' size='30' name='description' placeholder="{{menuItem.description}}"></dd>
+    <dt>Price:</dt>
+    <dd><input type='text' size='8' name='price' placeholder='{{menuItem.price}}'></dd>
 
-      <dt>Course:</dt>
-      {% if menuItem.course == 'Appetizer' %}
-      <dd><input type='radio' name='course' value='Appetizer' checked>Appetizer</dd>
-      {%else%}
-      <dd><input type='radio' name='course' value='Appetizer'>Appetizer</dd>
-      {% endif %}
+    <dt>Description:</dt>
+    <dd><input type='text' size='30' name='description' placeholder="{{menuItem.description}}"></dd>
 
-      {% if menuItem.course == 'Entree' %}
-      <dd><input type='radio' name='course' value='Entree' checked>Entree</dd>
-      {%else%}
-      <dd><input type='radio' name='course' value='Entree'>Entree</dd>
-      {% endif %}
+    <dt>Course:</dt>
+    {% if menuItem.course == 'Appetizer' %}
+    <dd><input type='radio' name='course' value='Appetizer' checked>Appetizer</dd>
+    {%else%}
+    <dd><input type='radio' name='course' value='Appetizer'>Appetizer</dd>
+    {% endif %}
 
-      {% if menuItem.course == 'Dessert'%}
-      <dd><input type='radio' name='course' value='Dessert' checked>Dessert</dd>
-      {% else %}
-      <dd><input type='radio' name='course' value='Dessert'>Dessert</dd>
-      {% endif %}
+    {% if menuItem.course == 'Entree' %}
+    <dd><input type='radio' name='course' value='Entree' checked>Entree</dd>
+    {%else%}
+    <dd><input type='radio' name='course' value='Entree'>Entree</dd>
+    {% endif %}
 
-      {%if menuItem.course =='Beverage'%}
-      <dd><input type='radio' name='course' value='Beverage' checked>Beverage</dd>
-      {% else %}
-      <dd><input type='radio' name='course' value='Beverage'>Beverage</dd>
-      {% endif %}
-    </dl>
+    {% if menuItem.course == 'Dessert'%}
+    <dd><input type='radio' name='course' value='Dessert' checked>Dessert</dd>
+    {% else %}
+    <dd><input type='radio' name='course' value='Dessert'>Dessert</dd>
+    {% endif %}
 
-    <input type='submit' value='Save'>
+    {%if menuItem.course =='Beverage'%}
+    <dd><input type='radio' name='course' value='Beverage' checked>Beverage</dd>
+    {% else %}
+    <dd><input type='radio' name='course' value='Beverage'>Beverage</dd>
+    {% endif %}
+  </dl>
 
-    <a href="{{url_for('showMenu', restaurant_id = menuItem.restaurant_id)}}">Cancel</a>
-  </form>
-</body>
-</html>
+  <input type='submit' value='Save'>
+
+  <a href="{{url_for('showMenu', restaurant_id = menuItem.restaurant_id)}}">Cancel</a>
+</form>
+
+{% endblock %}

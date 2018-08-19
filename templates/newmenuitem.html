@@ -1,36 +1,33 @@
-<html>
-<head>
-  <link rel=stylesheet type=text/css href="{{url_for('static', filename='styles.css')}}">
-</head>
-<body>
+{% extends "layout.html" %}
 
-  <h1>{{restaurant.name}}</h1>
-  <h2>Create a new menu item</h2>
+{% block body %}
 
-  <div class='pane'>
-    <form action="{{url_for('newMenuItem', restaurant_id=restaurant.id )}}" method='POST'>
+<h1>{{restaurant.name}}</h1>
+<h2>Create a new menu item</h2>
 
-      <dl>
-        <dt><p>Name:</p></dt>
-        <dd><input type='text' size='30' name='name'></dd>
+<div class='pane'>
+  <form action="{{url_for('newMenuItem', restaurant_id=restaurant.id )}}" method='POST'>
 
-        <dt>Price:</dt>
-        <dd><input type='text' size='8' name='price'></dd>
+    <dl>
+      <dt><p>Name:</p></dt>
+      <dd><input type='text' size='30' name='name'></dd>
 
-        <dt>Description:</dt>
-        <dd><input type='text' size='30' name='description'></dd>
+      <dt>Price:</dt>
+      <dd><input type='text' size='8' name='price'></dd>
 
-        <dt>Course:</dt>
-        <dd><input type='radio' name='course' value='Appetizer'>Appetizer</dd>
-        <dd><input type='radio' name='course' value='Entree' checked>Entree</dd>
-        <dd><input type='radio' name='course' value='Dessert'>Dessert</dd>
-        <dd><input type='radio' name='course' value='Beverage'>Beverage</dd>
-      </dl>
-      <input type='submit' value='Create'>
+      <dt>Description:</dt>
+      <dd><input type='text' size='30' name='description'></dd>
 
-    </form>
-    <a href="{{url_for('showMenu', restaurant_id = restaurant.id)}}">Cancel</a>
-  </div>
+      <dt>Course:</dt>
+      <dd><input type='radio' name='course' value='Appetizer'>Appetizer</dd>
+      <dd><input type='radio' name='course' value='Entree' checked>Entree</dd>
+      <dd><input type='radio' name='course' value='Dessert'>Dessert</dd>
+      <dd><input type='radio' name='course' value='Beverage'>Beverage</dd>
+    </dl>
+    <input type='submit' value='Create'>
 
-</body>
-</html>
+  </form>
+  <a href="{{url_for('showMenu', restaurant_id = restaurant.id)}}">Cancel</a>
+</div>
+
+{% endblock %}

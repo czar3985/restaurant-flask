@@ -1,17 +1,14 @@
-<html>
-<head>
-  <link rel=stylesheet type=text/css href="{{url_for('static', filename='styles.css')}}">
-</head>
-<body>
+{% extends "layout.html" %}
 
-  <h1>{{restaurantName}}</h1>
-  <h2>Are you sure you want to delete {{menuItem.name}}?</h2>
+{% block body %}
 
-  <form action="{{url_for('deleteMenuItem', restaurant_id = menuItem.restaurant_id, menu_id = menuItem.id )}}" method='POST'>
-    <input type='submit' value='Delete'>
-  </form>
+<h1>{{restaurantName}}</h1>
+<h2>Are you sure you want to delete {{menuItem.name}}?</h2>
 
-  <a href="{{url_for('showMenu', restaurant_id = menuItem.restaurant_id)}}">Cancel</a>
+<form action="{{url_for('deleteMenuItem', restaurant_id = menuItem.restaurant_id, menu_id = menuItem.id )}}" method='POST'>
+  <input type='submit' value='Delete'>
+</form>
 
-</body>
-</html>
+<a href="{{url_for('showMenu', restaurant_id = menuItem.restaurant_id)}}">Cancel</a>
+
+{% endblock %}

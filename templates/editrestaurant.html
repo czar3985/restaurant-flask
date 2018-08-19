@@ -1,21 +1,19 @@
-<html>
-<head>
-  <link rel=stylesheet type=text/css href="{{url_for('static', filename='styles.css')}}">
-</head>
-<body>
+{% extends "layout.html" %}
 
-  <h1>{{restaurant.name}}</h1>
-  <h2>Edit Details</h2>
+{% block body %}
 
-  <form action="{{url_for('editRestaurant', restaurant_id = restaurant.id)}}" method='POST'>
-    <dl>
-      <dt>Name:</dt>
-      <dd><input type='text' size='30' name='name' placeholder="{{restaurant.name}}"></dd>
-    </dl>
+<h1>{{restaurant.name}}</h1>
+<h2>Edit Details</h2>
 
-    <input type='submit' value='Save'>
+<form action="{{url_for('editRestaurant', restaurant_id = restaurant.id)}}" method='POST'>
+  <dl>
+    <dt>Name:</dt>
+    <dd><input type='text' size='30' name='name' placeholder="{{restaurant.name}}"></dd>
+  </dl>
 
-    <a href="{{url_for('showRestaurants')}}">Cancel</a>
-  </form>
-</body>
-</html>
+  <input type='submit' value='Save'>
+
+  <a href="{{url_for('showRestaurants')}}">Cancel</a>
+</form>
+
+{% endblock %}
