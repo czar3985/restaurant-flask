@@ -1,9 +1,35 @@
-<html>
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurants</title>
+
+  <!-- Metas for SEO -->
+  <meta name="description" content="Wellington restaurants and menu items for each" />
+  <meta name="keywords" content="restaurant, food, Wellington, New Zealand, menu" />
+
+  <!-- Styling for the page -->
   <link rel=stylesheet type=text/css href="{{url_for('static', filename='styles.css')}}">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto">
 </head>
+
 <body>
-  {% block body %}
-  {% endblock %}
+  <!-- Header of the page -->
+  <header>
+    <div class="header-inner">
+      <h1 class="header-text accent-color-1">RESTAURANTS</h1>
+    </div>
+  </header>
+
+  <!-- Main Page content -->
+  <main>
+    <hr class="accent-color-2"/>
+    {% block body %}
+    {% endblock %}
+  </main>
 </body>
+
 </html>

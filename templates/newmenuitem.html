@@ -2,32 +2,30 @@
 
 {% block body %}
 
-<h1>{{restaurant.name}}</h1>
-<h2>Create a new menu item</h2>
+<h2>{{restaurant.name}}</h2>
+<h3>Create a new menu item</h3>
 
-<div class='pane'>
-  <form action="{{url_for('newMenuItem', restaurant_id=restaurant.id )}}" method='POST'>
+<form action="{{url_for('newMenuItem', restaurant_id=restaurant.id )}}" method='POST'>
 
-    <dl>
-      <dt><p>Name:</p></dt>
-      <dd><input type='text' size='30' name='name'></dd>
+  <dl>
+    <dt><p>Name:</p></dt>
+    <dd><input type='text' size='30' name='name'></dd>
 
-      <dt>Price:</dt>
-      <dd><input type='text' size='8' name='price'></dd>
+    <dt>Price:</dt>
+    <dd><input type='text' size='8' name='price'></dd>
 
-      <dt>Description:</dt>
-      <dd><input type='text' size='30' name='description'></dd>
+    <dt>Description:</dt>
+    <dd><input type='text' size='30' name='description'></dd>
 
-      <dt>Course:</dt>
-      <dd><input type='radio' name='course' value='Appetizer'>Appetizer</dd>
-      <dd><input type='radio' name='course' value='Entree' checked>Entree</dd>
-      <dd><input type='radio' name='course' value='Dessert'>Dessert</dd>
-      <dd><input type='radio' name='course' value='Beverage'>Beverage</dd>
-    </dl>
-    <input type='submit' value='Create'>
+    <dt>Course:</dt>
+    <dd><input type='radio' name='course' value='Appetizer'>Appetizer</dd>
+    <dd><input type='radio' name='course' value='Entree' checked>Entree</dd>
+    <dd><input type='radio' name='course' value='Dessert'>Dessert</dd>
+    <dd><input type='radio' name='course' value='Beverage'>Beverage</dd>
+  </dl>
+  <input type='submit' value='Create'>
 
-  </form>
-  <a href="{{url_for('showMenu', restaurant_id = restaurant.id)}}">Cancel</a>
-</div>
+</form>
+<a class="accent-color-1" href="{{url_for('showMenu', restaurant_id = restaurant.id)}}">Cancel</a>
 
 {% endblock %}

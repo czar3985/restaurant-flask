@@ -2,8 +2,8 @@
 
 {% block body %}
 
-<h1>{{restaurantName}}</h1>
-<h2>Edit menu item</h2>
+<h2>{{restaurantName}}</h2>
+<h3>Edit menu item</h3>
 
 <form action="{{url_for('editMenuItem', restaurant_id = menuItem.restaurant_id, menu_id = menuItem.id )}}" method='POST'>
   <dl>
@@ -44,7 +44,7 @@
 
   <input type='submit' value='Save'>
 
-  <a href="{{url_for('showMenu', restaurant_id = menuItem.restaurant_id)}}">Cancel</a>
+  <a class="accent-color-1" href="{{url_for('showMenu', restaurant_id = menuItem.restaurant_id)}}">Cancel</a>
 </form>
 
 {% endblock %}

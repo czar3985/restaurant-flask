@@ -2,17 +2,15 @@
 
 {% block body %}
 
-<h1>Create a new restaurant</h1>
+<h2>Create a new restaurant</h2>
 
-<div class='pane'>
-  <form action="{{url_for('newRestaurant')}}" method='POST'>
-    <dl>
-      <dt><p>Name:</p></dt>
-      <dd><input type='text' size='30' name='name'></dd>
-    </dl>
-    <input type='submit' value='Create'>
-  </form>
-  <a href="{{url_for('showRestaurants')}}">Cancel</a>
-</div>
+<form action="{{url_for('newRestaurant')}}" method='POST'>
+  <dl>
+    <dt><p>Name:</p></dt>
+    <dd><input type='text' size='30' name='name'></dd>
+  </dl>
+  <input type='submit' value='Create'>
+</form>
+<a class="accent-color-1" href="{{url_for('showRestaurants')}}">Cancel</a>
 
 {% endblock %}
