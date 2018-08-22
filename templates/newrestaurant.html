@@ -5,12 +5,11 @@
 <h2>Create a new restaurant</h2>
 
 <form action="{{url_for('newRestaurant')}}" method='POST'>
-  <dl>
-    <dt><p>Name:</p></dt>
-    <dd><input type='text' size='30' name='name'></dd>
-  </dl>
-  <input type='submit' value='Create'>
+  <label for="name">Name</label>
+  <input type='text' id="name" name='name' placeholder="New restaurant name">
+
+  <input class="create-button accent-color-2" type='submit' value='Create'>
 </form>
-<a class="accent-color-1" href="{{url_for('showRestaurants')}}">Cancel</a>
+<a class="cancel-link accent-color-1" href="{{url_for('showRestaurants')}}">Cancel</a>
 
 {% endblock %}

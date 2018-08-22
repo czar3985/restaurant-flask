@@ -73,7 +73,10 @@ a {
   background: #D8C3A5;
 }
 
-.create-link {
+.create-link,
+.menu-link,
+.modify-link,
+.cancel-link {
   line-height: 2em;
 }
 
@@ -101,7 +104,6 @@ a {
 
 .menu-link {
   padding-left: 0.5em;
-  line-height: 2em;
 }
 
 .edit-delete-group {
@@ -109,6 +111,19 @@ a {
   padding-bottom: 0.5em;
 }
 
-.modify-link {
+.create-button {
+  border-radius: 5px;
+  border-color: #D8C3A5;
+  background-color: #EAE7DC;
   line-height: 2em;
+  margin-top: 10px;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #D8C3A5;
+  border-radius: 4px;
 }
