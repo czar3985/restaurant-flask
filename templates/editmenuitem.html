@@ -42,9 +42,9 @@
     {% endif %}
   </dl>
 
-  <input type='submit' value='Save'>
-
-  <a class="cancel-link accent-color-1" href="{{url_for('showMenu', restaurant_id = menuItem.restaurant_id)}}">Cancel</a>
+  <input class="save-button accent-color-2" type='submit' value='Save'>
 </form>
+
+<a class="cancel-link accent-color-1" href="{{url_for('showMenu', restaurant_id = menuItem.restaurant_id)}}">Cancel</a>
 
 {% endblock %}

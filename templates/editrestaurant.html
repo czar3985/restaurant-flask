@@ -6,14 +6,12 @@
 <h3>Edit Details</h3>
 
 <form action="{{url_for('editRestaurant', restaurant_id = restaurant.id)}}" method='POST'>
-  <dl>
-    <dt>Name:</dt>
-    <dd><input type='text' size='30' name='name' placeholder="{{restaurant.name}}"></dd>
-  </dl>
+  <label for="name">Name</label>
+  <input type='text' id="name" name='name' placeholder="{{restaurant.name}}">
 
-  <input type='submit' value='Save'>
-
-  <a class="cancel-link cancel-link accent-color-1" href="{{url_for('showRestaurants')}}">Cancel</a>
+  <input class="save-button accent-color-2" type='submit' value='Save'>
 </form>
+
+<a class="cancel-link cancel-link accent-color-1" href="{{url_for('showRestaurants')}}">Cancel</a>
 
 {% endblock %}

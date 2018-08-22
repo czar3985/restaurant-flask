@@ -111,7 +111,8 @@ a {
   padding-bottom: 0.5em;
 }
 
-.create-button {
+.create-button,
+.save-button {
   border-radius: 5px;
   border-color: #D8C3A5;
   background-color: #EAE7DC;
