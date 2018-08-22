@@ -15,18 +15,21 @@
 </div>
 
 <p>
-  <a class="accent-color-1" href="{{url_for('newRestaurant')}}">Create a new restaurant</a>
+  <a class="create-link accent-color-1" href="{{url_for('newRestaurant')}}">Create a new restaurant</a>
 </p>
 
 {% for restaurant in restaurants %}
 
-<div class="nameAndPrice">
-  <p>{{restaurant.name}}</p>
-</div>
-<a class="accent-color-1" href="{{url_for('showMenu', restaurant_id = restaurant.id)}}">Show Menu</a>
-<div class="editdeletepane">
-  <a class="accent-color-1" href="{{url_for('editRestaurant', restaurant_id = restaurant.id)}}">Edit</a>
-  <a class="accent-color-1" href="{{url_for('deleteRestaurant', restaurant_id = restaurant.id)}}">Delete</a>
+<div class="restaurant-group">
+  <div class="name-price-group">
+    <p>{{restaurant.name}}</p>
+  </div>
+  <a class="menu-link accent-color-1" href="{{url_for('showMenu', restaurant_id = restaurant.id)}}">Show Menu</a>
+  <div class="edit-delete-group">
+    <a class="modify-link accent-color-1" href="{{url_for('editRestaurant', restaurant_id = restaurant.id)}}">Edit</a>
+    <span>&#9702;</span>
+    <a class="modify-link accent-color-1" href="{{url_for('deleteRestaurant', restaurant_id = restaurant.id)}}">Delete</a>
+  </div>
 </div>
 
 {% endfor %}
