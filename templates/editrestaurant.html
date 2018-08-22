@@ -6,8 +6,10 @@
 <h3>Edit Details</h3>
 
 <form action="{{url_for('editRestaurant', restaurant_id = restaurant.id)}}" method='POST'>
-  <label for="name">Name</label>
-  <input type='text' id="name" name='name' placeholder="{{restaurant.name}}">
+  <div class="details-group">
+    <label for="name">Name</label>
+    <input type='text' id="name" name='name' placeholder="{{restaurant.name}}">
+  </div>
 
   <input class="save-button accent-color-2" type='submit' value='Save'>
 </form>

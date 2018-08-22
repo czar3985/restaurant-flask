@@ -86,14 +86,15 @@ li {
 }
 
 .restaurant-group,
-.menu-item-group {
+.menu-item-group,
+.details-group {
   border: 1px solid #D8C3A5;
   border-radius: 8px;
   margin-bottom: 10px;
+  padding: 0.5em;
 }
 
 .name-price-group {
-  padding-left: 0.5em;
   font-size: 1.25em;
 }
 
@@ -107,22 +108,10 @@ li {
   text-align: right;
   width: 20%;
   float: right;
-  padding-right: 0.5em;
 }
 
 .description {
   clear: both;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-}
-
-.menu-link {
-  padding-left: 0.5em;
-}
-
-.edit-delete-group {
-  padding-left: 0.5em;
-  padding-bottom: 0.5em;
 }
 
 .create-button,
@@ -132,12 +121,11 @@ li {
   border-color: #D8C3A5;
   background-color: #EAE7DC;
   line-height: 2em;
-  margin-top: 10px;
 }
 
 input[type=text], select {
   width: 100%;
-  padding: 12px 20px;
+  padding: 0.5em;
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #D8C3A5;

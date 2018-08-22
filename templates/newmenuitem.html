@@ -6,23 +6,25 @@
 <h3>Create a new menu item</h3>
 
 <form action="{{url_for('newMenuItem', restaurant_id=restaurant.id )}}" method='POST'>
+  <div class="details-group">
+    <dl>
+      <dt><p>Name:</p></dt>
+      <dd><input type='text' size='30' name='name'></dd>
 
-  <dl>
-    <dt><p>Name:</p></dt>
-    <dd><input type='text' size='30' name='name'></dd>
+      <dt>Price:</dt>
+      <dd><input type='text' size='8' name='price'></dd>
 
-    <dt>Price:</dt>
-    <dd><input type='text' size='8' name='price'></dd>
+      <dt>Description:</dt>
+      <dd><input type='text' size='30' name='description'></dd>
 
-    <dt>Description:</dt>
-    <dd><input type='text' size='30' name='description'></dd>
+      <dt>Course:</dt>
+      <dd><input type='radio' name='course' value='Appetizer'>Appetizer</dd>
+      <dd><input type='radio' name='course' value='Entree' checked>Entree</dd>
+      <dd><input type='radio' name='course' value='Dessert'>Dessert</dd>
+      <dd><input type='radio' name='course' value='Beverage'>Beverage</dd>
+    </dl>
+  </div>
 
-    <dt>Course:</dt>
-    <dd><input type='radio' name='course' value='Appetizer'>Appetizer</dd>
-    <dd><input type='radio' name='course' value='Entree' checked>Entree</dd>
-    <dd><input type='radio' name='course' value='Dessert'>Dessert</dd>
-    <dd><input type='radio' name='course' value='Beverage'>Beverage</dd>
-  </dl>
   <input class="create-button accent-color-2" type='submit' value='Create'>
 
 </form>
