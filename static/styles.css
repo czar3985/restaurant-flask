@@ -134,6 +134,16 @@ li {
   padding: 0.5em;
 }
 
+.restaurant-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.restaurant-name {
+  font-size: 1.25em;
+  width: 100%;
+}
+
 .name-price-group {
   font-size: 1.25em;
 }
@@ -150,8 +160,16 @@ li {
   float: right;
 }
 
+.menu-link {
+  width: 100%;
+}
+
 .description {
   clear: both;
+}
+
+.restaurant-edit-delete {
+  width: 100%;
 }
 
 input[type=text],
@@ -171,18 +189,66 @@ select,
   height: 4.5em;
 }
 
-/*
+@media screen and (min-width: 450px) {
+  .menu-link {
+    width: 50%;
+  }
+
+  .restaurant-edit-delete {
+    width: 50%;
+    text-align: right;
+  }
+}
+
+@media screen and (min-width: 550px) {
+  .restaurant-name {
+    width: 60%;
+  }
+
+  .menu-link,
+  .restaurant-edit-delete {
+    width: 20%;
+    text-align: right;
+    margin-top: 1em;
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .restaurant-name,
+  .menu-link,
+  .restaurant-edit-delete {
+    width: 100%;
+    text-align: left;
+    margin-top: 0;
+  }
+}
+
+  /*
  *
  * Buttons
  *
  *
 */
 
-.create-button,
-.save-button,
-.delete-button {
-  border-radius: 5px;
-  border-color: #D8C3A5;
-  background-color: #EAE7DC;
-  line-height: 2em;
-}
+  .create-button,
+  .save-button,
+  .delete-button {
+    border-radius: 5px;
+    border-color: #D8C3A5;
+    background-color: #EAE7DC;
+    line-height: 2em;
+  }
+
+  /*
+ *
+ * Body styling for responsiveness
+ *
+ *
+*/
+
+  @media screen and (min-width: 900px) {
+    body {
+      width: 900px;
+      margin: auto;
+    }
+  }
