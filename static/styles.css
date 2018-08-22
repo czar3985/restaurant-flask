@@ -112,7 +112,8 @@ a {
 }
 
 .create-button,
-.save-button {
+.save-button,
+.delete-button {
   border-radius: 5px;
   border-color: #D8C3A5;
   background-color: #EAE7DC;
