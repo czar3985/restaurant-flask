@@ -125,6 +125,11 @@ li {
  *
 */
 
+.restaurant-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .restaurant-group,
 .menu-item-group,
 .details-group {
@@ -137,6 +142,7 @@ li {
 .restaurant-group {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .restaurant-name {
@@ -214,6 +220,15 @@ select,
 }
 
 @media screen and (min-width: 650px) {
+  .restaurant-list {
+    padding: 5px;
+  }
+
+  .restaurant-group {
+    width: 48%;
+    margin: 5px;
+  }
+
   .restaurant-name,
   .menu-link,
   .restaurant-edit-delete {
@@ -223,32 +238,35 @@ select,
   }
 }
 
-  /*
- *
- * Buttons
- *
- *
+@media screen and (min-width: 900px) {
+  .restaurant-group {
+    width: 32%;
+  }
+}
+
+/*
+*
+* Buttons
+*
+*
+*/
+.create-button, .save-button, .delete-button {
+  border-radius: 5px;
+  border-color: #D8C3A5;
+  background-color: #EAE7DC;
+  line-height: 2em;
+}
+
+/*
+*
+* Body styling for responsiveness
+*
+*
 */
 
-  .create-button,
-  .save-button,
-  .delete-button {
-    border-radius: 5px;
-    border-color: #D8C3A5;
-    background-color: #EAE7DC;
-    line-height: 2em;
+@media screen and (min-width: 900px) {
+  body {
+    width: 900px;
+    margin: auto;
   }
-
-  /*
- *
- * Body styling for responsiveness
- *
- *
-*/
-
-  @media screen and (min-width: 900px) {
-    body {
-      width: 900px;
-      margin: auto;
-    }
-  }
+}
