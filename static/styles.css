@@ -77,6 +77,14 @@ h3 {
   background: #D8C3A5;
 }
 
+.flash ul {
+  padding: 0.5em;
+}
+
+.flash li {
+  list-style-type: none;
+}
+
 .create-link,
 .menu-link,
 .modify-link,
