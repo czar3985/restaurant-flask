@@ -69,6 +69,10 @@ a {
   text-decoration: none;
 }
 
+h3 {
+  color: #E85A4F;
+}
+
 .flash {
   background: #D8C3A5;
 }
@@ -76,11 +80,13 @@ a {
 .create-link,
 .menu-link,
 .modify-link,
-.cancel-link {
+.cancel-link,
+li {
   line-height: 2em;
 }
 
-.restaurant-group {
+.restaurant-group,
+.menu-item-group {
   border: 1px solid #D8C3A5;
   border-radius: 8px;
   margin-bottom: 10px;
@@ -92,14 +98,22 @@ a {
 }
 
 .name {
-  width: 50%;
+  width: 80%;
   display: inline-block;
   float: left;
 }
 
 .price {
-  width: 50%;
+  text-align: right;
+  width: 20%;
   float: right;
+  padding-right: 0.5em;
+}
+
+.description {
+  clear: both;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
 }
 
 .menu-link {
