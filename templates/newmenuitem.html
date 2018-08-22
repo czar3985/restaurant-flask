@@ -7,22 +7,22 @@
 
 <form action="{{url_for('newMenuItem', restaurant_id=restaurant.id )}}" method='POST'>
   <div class="details-group">
-    <dl>
-      <dt><p>Name:</p></dt>
-      <dd><input type='text' size='30' name='name'></dd>
+    <label for="name">Name</label>
+    <input type='text' id="name" name='name' placeholder="New menu item">
 
-      <dt>Price:</dt>
-      <dd><input type='text' size='8' name='price'></dd>
+    <label for="price">Price</label>
+    <input type='text' id="price" name='price' placeholder="Price of new menu item">
 
-      <dt>Description:</dt>
-      <dd><input type='text' size='30' name='description'></dd>
+    <label for="description">Description</label>
+    <textarea id="description" name='description'></textarea>
 
-      <dt>Course:</dt>
-      <dd><input type='radio' name='course' value='Appetizer'>Appetizer</dd>
-      <dd><input type='radio' name='course' value='Entree' checked>Entree</dd>
-      <dd><input type='radio' name='course' value='Dessert'>Dessert</dd>
-      <dd><input type='radio' name='course' value='Beverage'>Beverage</dd>
-    </dl>
+    <label for="course">Course</label>
+    <select id="course" name="course">
+      <option value="Appetizer">Appetizer</option>
+      <option value="Entree" selected>Entree</option>
+      <option value="Dessert">Dessert</option>
+      <option value="Beverage">Beverage</option>
+    </select>
   </div>
 
   <input class="create-button accent-color-2" type='submit' value='Create'>
