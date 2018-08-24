@@ -59,6 +59,7 @@ Columns:
 - Create a new menu item for each restaurant
 - Update a menu item 
 - Delete a menu item from the database
+- Search for restaurants or food
 - Make use of JSON API endpoints for a list of restaurants, menus for each restaurant and specific menu item
 
 Ex. 
@@ -68,5 +69,3 @@ http://SERVERPC:5000/restaurant/JSON,
 http://SERVERPC:5000/restaurant/1/menu/JSON, 
 
 http://SERVERPC:5000/restaurant/1/menu/1/JSON
-
-
