@@ -8,10 +8,10 @@
 <form action="{{url_for('editMenuItem', restaurant_id = menuItem.restaurant_id, menu_id = menuItem.id )}}" method='POST'>
   <div class="details-group">
     <label for="name">Name</label>
-    <input type='text' id="name" name='name' placeholder="{{menuItem.name}}" required>
+    <input type='text' id="name" name='name' value="{{menuItem.name}}" required>
 
     <label for="price">Price</label>
-    <input type='text' id="price" name='price' placeholder="{{menuItem.price}}" required>
+    <input type='text' id="price" name='price' value="{{menuItem.price}}" required>
 
     <label for="description">Description</label>
     <textarea id="description" name='description'>{{menuItem.description}}</textarea>
