@@ -128,13 +128,45 @@ li {
 .restaurant-actions {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 5px;
 }
 
 .restaurant-actions .create-link,
-.restaurant-actions form {
+.search-form {
   width: 100%;
 }
 
+.search-form {
+  display: flex;
+}
+
+.search-button {
+  margin: auto;
+}
+
+@media screen and (min-width: 550px) {
+  .restaurant-actions .create-link,
+  .restaurant-actions .search-form {
+    width: 50%;
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .restaurant-actions {
+    margin-bottom: 0;
+  }
+ }
+
+@media screen and (min-width: 900px) {
+  .restaurant-actions .create-link {
+    width: 60%;
+  }
+
+  .restaurant-actions .search-form {
+    width: 40%;
+  }
+}
 
 /*
  *
@@ -142,16 +174,15 @@ li {
  *
  *
 */
-
-.restaurant-list,
-.food-list {
+.restaurant-list, .food-list {
   display: flex;
   flex-wrap: wrap;
 }
 
 .restaurant-group,
 .menu-item-group,
-.details-group {
+.details-group,
+.search-group {
   border: 1px solid #D8C3A5;
   border-radius: 8px;
   margin-bottom: 10px;
@@ -276,6 +307,7 @@ select,
 *
 *
 */
+
 .create-button,
 .save-button,
 .delete-button,
@@ -284,6 +316,19 @@ select,
   border-color: #D8C3A5;
   background-color: #EAE7DC;
   line-height: 2em;
+}
+
+/*
+*
+* Search Page
+*
+*
+*/
+
+.where-served {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
 /*
