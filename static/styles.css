@@ -125,7 +125,8 @@ li {
  *
 */
 
-.restaurant-list {
+.restaurant-list,
+.food-list {
   display: flex;
   flex-wrap: wrap;
 }
@@ -142,6 +143,10 @@ li {
 .restaurant-group {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
+}
+
+.menu-item-group {
   width: 100%;
 }
 
@@ -220,11 +225,13 @@ select,
 }
 
 @media screen and (min-width: 650px) {
-  .restaurant-list {
+  .restaurant-list,
+  .food-list {
     padding: 5px;
   }
 
-  .restaurant-group {
+  .restaurant-group,
+  .menu-item-group {
     width: 48%;
     margin: 5px;
   }
@@ -239,7 +246,8 @@ select,
 }
 
 @media screen and (min-width: 900px) {
-  .restaurant-group {
+  .restaurant-group,
+  .menu-item-group {
     width: 32%;
   }
 }
