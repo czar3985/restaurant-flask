@@ -189,7 +189,33 @@ def deleteMenuItem(restaurant_id, menu_id):
 def searchResult():
 
     if request.method == 'POST':
-        return render_template('searchresults.html', search_keyword = '')
+        search_keyword = request.form['search-keyword']
+        search_keyword_lower = search_keyword.lower()
+
+        restaurants_found = []
+        restaurants = session.query(Restaurant).all()
+        for restaurant in restaurants:
+            if search_keyword_lower in restaurant.name.lower():
+                restaurants_found.append(restaurant)
+
+        menu_items_found = []
+        menuItems = session.query(MenuItem).all()
+        for menuItem in menuItems:
+            if menuItem.course:
+                if search_keyword_lower in menuItem.course.lower():
+                    menu_items_found.append(menuItem)
+                    continue
+            if search_keyword_lower in menuItem.name.lower():
+                menu_items_found.append(menuItem)
+                continue
+            if menuItem.description:
+                if search_keyword_lower in menuItem.description.lower():
+                    menu_items_found.append(menuItem)
+
+        return render_template('searchresults.html',
+                               search_keyword = search_keyword,
+                               restaurants_found = restaurants_found,
+                               menu_items_found = menu_items_found)
 
     else:
         return render_template('searchresults.html', search_keyword = '')
