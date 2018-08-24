@@ -14,9 +14,14 @@
   {% endwith %}
 </div>
 
-<p>
+<div class="restaurant-actions">
   <a class="create-link accent-color-1" href="{{url_for('newRestaurant')}}">Create a new restaurant</a>
-</p>
+
+  <form action="{{url_for('searchResult')}}" method='POST'>
+    <input type='text' name='search-keyword' placeholder="Search for restaurant or food..." required>
+    <input class="search-button accent-color-2" type='submit' value=&#128270;>
+  </form>
+</div>
 
 <div class="restaurant-list">
   {% for restaurant in restaurants %}

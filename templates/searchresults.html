@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h2>Search results for: {{search_keyword}}</h2>
+
+<p>Show search results here</p>
+
+<a class="cancel-link accent-color-1" href="{{url_for('showRestaurants')}}">Back to restaurants list</a>
+
+{% endblock %}

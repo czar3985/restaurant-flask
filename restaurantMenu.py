@@ -185,6 +185,16 @@ def deleteMenuItem(restaurant_id, menu_id):
         return render_template('deletemenuitem.html', restaurantName = restaurant.name, menuItem = menuItem)
 
 
+@app.route('/restaurant/search/', methods=['GET','POST'])
+def searchResult():
+
+    if request.method == 'POST':
+        return render_template('searchresults.html', search_keyword = '')
+
+    else:
+        return render_template('searchresults.html', search_keyword = '')
+
+
 if __name__ == '__main__':
     app.secret_key = 'super_secret_key'
     app.debug = True

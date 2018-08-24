@@ -80,6 +80,10 @@ h3 {
   color: #E85A4F;
 }
 
+a {
+  text-decoration: none;
+}
+
 /*
  *
  * Flash Message
@@ -106,10 +110,6 @@ h3 {
  *
 */
 
-a {
-  text-decoration: none;
-}
-
 .create-link,
 .menu-link,
 .modify-link,
@@ -117,6 +117,24 @@ a {
 li {
   line-height: 2em;
 }
+
+/*
+ *
+ * Restaurant Actions Section
+ *
+ *
+*/
+
+.restaurant-actions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.restaurant-actions .create-link,
+.restaurant-actions form {
+  width: 100%;
+}
+
 
 /*
  *
@@ -258,7 +276,10 @@ select,
 *
 *
 */
-.create-button, .save-button, .delete-button {
+.create-button,
+.save-button,
+.delete-button,
+.search-button {
   border-radius: 5px;
   border-color: #D8C3A5;
   background-color: #EAE7DC;
