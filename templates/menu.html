@@ -18,6 +18,10 @@
 
 <p>
   <a class="create-link accent-color-1" href="{{url_for('newMenuItem', restaurant_id = restaurant.id)}}">Add a new menu item</a>
+  <span>&#9702;</span>
+  <a class="modify-link accent-color-1" href="{{url_for('editRestaurant', restaurant_id = restaurant.id)}}">Edit restaurant</a>
+  <span>&#9702;</span>
+  <a class="modify-link accent-color-1" href="{{url_for('deleteRestaurant', restaurant_id = restaurant.id)}}">Delete restaurant</a>
 </p>
 
 {% if appetizers %}

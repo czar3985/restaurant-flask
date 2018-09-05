@@ -200,6 +200,10 @@ li {
   width: 100%;
 }
 
+.restaurant-group:hover {
+  background-color: lightyellow;
+}
+
 .menu-item-group {
   width: 100%;
 }
@@ -233,9 +237,9 @@ li {
   clear: both;
 }
 
-.restaurant-edit-delete {
+/*.restaurant-edit-delete {
   width: 100%;
-}
+}*/
 
 input[type=text],
 select,
@@ -259,10 +263,10 @@ select,
     width: 50%;
   }
 
-  .restaurant-edit-delete {
+  /*.restaurant-edit-delete {
     width: 50%;
     text-align: right;
-  }
+  }*/
 }
 
 @media screen and (min-width: 550px) {
@@ -270,8 +274,8 @@ select,
     width: 60%;
   }
 
-  .menu-link,
-  .restaurant-edit-delete {
+  .menu-link/*,
+  .restaurant-edit-delete*/ {
     width: 20%;
     text-align: right;
     margin-top: 1em;
@@ -291,8 +295,8 @@ select,
   }
 
   .restaurant-name,
-  .menu-link,
-  .restaurant-edit-delete {
+  .menu-link/*,
+  .restaurant-edit-delete*/ {
     width: 100%;
     text-align: left;
     margin-top: 0;
