@@ -14,6 +14,9 @@
   <!-- Styling for the page -->
   <link rel=stylesheet type=text/css href="{{url_for('static', filename='styles.css')}}">
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto">
+
+  {% block head %}
+  {% endblock %}
 </head>
 
 <body>
@@ -29,6 +32,7 @@
   <!-- Main Page content -->
   <main>
     <hr class="accent-color-2"/>
+
     {% block body %}
     {% endblock %}
   </main>

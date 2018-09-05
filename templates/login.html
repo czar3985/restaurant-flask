@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<!-- GOOGLE SIGN IN SCRIPTS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+{% endblock %}
+
+{% block body %}
+
+<h2>Log-in</h2>
+<h3>You have to log-in with your Google account in order to add, edit and delete entries.</h3>
+
+<!-- GOOGLE SIGN IN BUTTON -->
+<div id="signinButton">
+  <span class="g-signin"
+        data-scope="openid email"
+        data-clientid="REPLACE_THIS_WITH_THE_CLIENT_ID.apps.googleusercontent.com"
+        data-redirecturi="postmessage"
+        data-accesstype="offline"
+        data-cookiepolicy="single_host_origin"
+        data-callback="signInCallback"
+        data-approvalprompt="force">
+  </span>
+</div>
+
+<a class="cancel-link accent-color-1" href="{{url_for('showRestaurants')}}">Cancel</a>
+
+{% endblock %}

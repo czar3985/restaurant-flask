@@ -49,6 +49,10 @@ Follow the steps below to create _client_secrets.json_
 8. Set the authorized JavaScript origins - http://localhost:5000
 9. Authorized redirect URIs: http://localhost:5000/login and http://localhost:5000/gconnect
 10. Download the client secret JSON file and copy the contents to client_secrets.json in the same folder as the restaurant_menu.py file
+11. In templates/login.html, replace the client id in the following line:
+```html
+data-clientid="REPLACE_THIS_WITH_THE_CLIENT_ID.apps.googleusercontent.com"
+```
 
 ## Database Structure
 
