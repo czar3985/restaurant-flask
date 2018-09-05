@@ -12,8 +12,10 @@ _**This version of the restaurants application uses the Flask framework.**_
 2. sqlalchemy
 3. sqlite3
 4. flask
-5. _database_setup.py_ from the github repository [restaurants](https://github.com/czar3985/restaurants-flask)
-5. _restaurantMenu.py_ from the same restaurant-flask repository
+5. _database_setup.py_
+6. _restaurantMenu.py_
+7. _lotsofmenus.py_ 
+8. Google developers account
 
 ## Usage
 
@@ -22,14 +24,31 @@ The following resource gives more information on how to run python scripts:
 
 _database_setup.py_ will setup the database: _restaurantmenu.db_
 
+_lotsofmenus.py_ will populate the database
+
 _restaurantMenu.py_ will run the web server 
 
 Navigate to port 5000, 
 
-restaurants page: http://SERVERPC:5000/restaurant/
+restaurants page: http://localhost:5000/restaurant/
 
 menu page for each restaurant ID in the server PC
-Ex: http://SERVERPC:5000/restaurant/1/
+Ex: http://localhost:5000/restaurant/1/
+
+Follow the steps below to create _client_secrets.json_
+
+### Google log-in
+
+1. In console.developers.google.com, sign in to your Google account
+2. Create Project. Indicate a name for the app
+3. Go to your app's page in the Google APIs Console
+4. Choose Credentials
+5. Create an OAuth Client ID.
+6. Configure the consent screen, with email and app name
+7. Choose Web application list of application types
+8. Set the authorized JavaScript origins - http://localhost:5000
+9. Authorized redirect URIs: http://localhost:5000/login and http://localhost:5000/gconnect
+10. Download the client secret JSON file and copy the contents to client_secrets.json in the same folder as the restaurant_menu.py file
 
 ## Database Structure
 
@@ -64,8 +83,8 @@ Columns:
 
 Ex. 
 
-http://SERVERPC:5000/restaurant/JSON, 
+http://localhost:5000/restaurant/JSON, 
 
-http://SERVERPC:5000/restaurant/1/menu/JSON, 
+http://localhost:5000/restaurant/1/menu/JSON, 
 
-http://SERVERPC:5000/restaurant/1/menu/1/JSON
+http://localhost:5000/restaurant/1/menu/1/JSON
