@@ -6,9 +6,23 @@ from database_setup import Base, Restaurant, MenuItem, engine
 from flask import session as login_session
 import random, string
 
+from oauth2client.client import flow_from_clientsecrets
+from oauth2client.client import FlowExchangeError
+import httplib2
+import json
+from flask import make_response
+import requests
+
 
 app = Flask(__name__)
 
+
+CLIENT_ID = json.loads(
+    open('client_secrets.json', 'r').read())['web']['client_id']
+APPLICATION_NAME = "Restaurant Menu Application"
+
+
+# Connect to Database and create database session
 engine = create_engine('sqlite:///restaurantMenu.db',  connect_args={'check_same_thread':False})
 Base.metadata.bind = engine
 
@@ -18,9 +32,10 @@ session = DBSession()
 
 @app.route('/restaurant/login/')
 def showLogin():
+	# Create anti-forgery state token
     state = ''.join(random.choice(string.ascii_letters + string.digits) for x in xrange(32))
     login_session['state'] = state
-    return render_template('login.html', STATE=state)
+    return render_template('login.html', CLIENT_ID=CLIENT_ID, STATE=state)
 
 
 @app.route('/')
