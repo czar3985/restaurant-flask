@@ -132,6 +132,12 @@ def gconnect():
     login_session['picture'] = data['picture']
     login_session['email'] = data['email']
 
+    # See if the user exists in the database or create a new entry
+    userId = getUserID(login_session['email'])
+    if userId == None:
+        userId = createUser(login_session)
+    login_session['user_id'] = userId
+
     output = '<br />'
     flash("You are now logged in as %s" % login_session['username'])
     return output
@@ -185,8 +191,7 @@ def newRestaurant():
         return redirect(url_for('showLogin'))
 
     if request.method == 'POST':
-        user = session.query(User).filter_by(email = login_session['email']).one()
-        newItem = Restaurant(name = request.form['name'], address = request.form['address'], user_id = user.id)
+        newItem = Restaurant(name = request.form['name'], address = request.form['address'], user_id = login_session['user_id'])
         session.add(newItem)
         session.commit()
         flash('New restaurant created')
