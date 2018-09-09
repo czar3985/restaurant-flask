@@ -21,6 +21,8 @@
 {% endblock %}
 
 {% if courseList %}
+
+{% block menu_edit_block %}
 {% for course in courseList %}
 <h3>{{course}}</h3>
 
@@ -35,9 +37,6 @@
     <div class="description">
       <p class="color-theme-2">{{menuItem.description}}</p>
     </div>
-
-    {% block menu_edit_block %}
-    {% endblock %}
   </div>
   {% endif %}
   {% endfor %}
@@ -45,6 +44,8 @@
 
 <br />
 {% endfor %}
+{% endblock %}
+
 {% endif %}
 
 <p class="creator-name">Restaurant and menu details provided by {{creator.name}}</p>
