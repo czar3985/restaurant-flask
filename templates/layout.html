@@ -22,7 +22,17 @@
 <body>
   <!-- Header of the page -->
   <header>
-    <p class="login-link">Log-in link goes here</p>
+    {%if 'username' not in session %}
+    <p class="login-link">
+      <a class="accent-color-1" href="{{url_for('showLogin')}}">Sign in</a>
+    </p>
+    {% else %}
+    <p class="login-link">
+      Logged in as {{session['username']}}.
+      <a class="accent-color-1" href="{{url_for('gdisconnect')}}">Sign out</a>
+    </p>
+    {% endif %}
+
     <hr class="accent-color-2" />
     <div class="header-inner">
       <a class="header-text accent-color-1" href="{{url_for('showRestaurants')}}">WELLINGTON RESTAURANTS</a>
