@@ -216,7 +216,7 @@ def editRestaurant(restaurant_id):
             restaurant.name = request.form['name']
 
         if request.form['address'] != '':
-            restaurant.name = request.form['address']
+            restaurant.address = request.form['address']
 
         session.add(restaurant)
         session.commit()
