@@ -15,7 +15,10 @@
 </div>
 
 <div class="restaurant-actions">
-  <a class="create-link accent-color-1" href="{{url_for('newRestaurant')}}">Create a new restaurant</a>
+  <div class="create-block">
+    {% block restaurant_create_block %}
+    {% endblock %}
+  </div>
 
   <form class="search-form" action="{{url_for('searchResult')}}" method='POST'>
     <input class="search-field" type='text' name='search-keyword' placeholder="Search for restaurant or food..." required>
@@ -25,7 +28,7 @@
 
 <div class="restaurant-list">
   {% for restaurant in restaurants %}
-  <a class="color-theme-2 restaurant-group" href = "{{url_for('showMenu', restaurant_id = restaurant.id)}}">
+  <a class="color-theme-2 restaurant-group" href="{{url_for('showMenu', restaurant_id = restaurant.id)}}">
     <div class="restaurant-name">
       <p>{{restaurant.name}}</p>
       <p class="restaurant-address accent-color-1">{{restaurant.address}}</p>

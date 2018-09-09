@@ -17,13 +17,8 @@
   {% endwith %}
 </div>
 
-<p>
-  <a class="create-link accent-color-1" href="{{url_for('newMenuItem', restaurant_id = restaurant.id)}}">Add a new menu item</a>
-  <span>&#9702;</span>
-  <a class="modify-link accent-color-1" href="{{url_for('editRestaurant', restaurant_id = restaurant.id)}}">Edit restaurant</a>
-  <span>&#9702;</span>
-  <a class="modify-link accent-color-1" href="{{url_for('deleteRestaurant', restaurant_id = restaurant.id)}}">Delete restaurant</a>
-</p>
+{% block restaurant_edit_block %}
+{% endblock %}
 
 {% if courseList %}
 {% for course in courseList %}
@@ -40,11 +35,9 @@
     <div class="description">
       <p class="color-theme-2">{{menuItem.description}}</p>
     </div>
-    <div class="edit-delete-group">
-      <a class="modify-link accent-color-1" href="{{url_for('editMenuItem', restaurant_id = restaurant.id, menu_id = menuItem.id)}}">Edit</a>
-      <span>&#9702;</span>
-      <a class="modify-link accent-color-1" href="{{url_for('deleteMenuItem', restaurant_id = restaurant.id, menu_id = menuItem.id)}}">Delete</a>
-    </div>
+
+    {% block menu_edit_block %}
+    {% endblock %}
   </div>
   {% endif %}
   {% endfor %}
@@ -53,6 +46,8 @@
 <br />
 {% endfor %}
 {% endif %}
+
+<p class="creator-name">Restaurant and menu details provided by {{creator.name}}</p>
 
 <a class="accent-color-1" href="{{url_for('showRestaurants')}}">Back to restaurants list</a>
 

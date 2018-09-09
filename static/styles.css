@@ -136,7 +136,7 @@ li {
   margin-bottom: 5px;
 }
 
-.restaurant-actions .create-link,
+.restaurant-actions .create-block,
 .search-form {
   width: 100%;
 }
@@ -150,7 +150,7 @@ li {
 }
 
 @media screen and (min-width: 550px) {
-  .restaurant-actions .create-link,
+  .restaurant-actions .create-block,
   .restaurant-actions .search-form {
     width: 50%;
     margin: auto;
@@ -164,7 +164,7 @@ li {
  }
 
 @media screen and (min-width: 900px) {
-  .restaurant-actions .create-link {
+  .restaurant-actions .create-block {
     width: 60%;
   }
 
@@ -256,6 +256,10 @@ select,
 
 .details-group textarea {
   height: 4.5em;
+}
+
+.creator-name {
+  font-style: italic;
 }
 
 @media screen and (min-width: 450px) {
