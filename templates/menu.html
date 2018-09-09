@@ -3,6 +3,7 @@
 {% block body %}
 
 <h2>{{restaurant.name}}</h2>
+<p>{{restaurant.address}}</p>
 
 <div class="flash">
   {% with messages = get_flashed_messages() %}

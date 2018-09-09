@@ -16,6 +16,7 @@
 <div class="search-group">
   <div class="restaurant-name">
     <p>{{restaurant.name}}</p>
+    <p class="restaurant-address accent-color-1">{{restaurant.address}}</p>
   </div>
   <a class="menu-link accent-color-1" href="{{url_for('showMenu', restaurant_id = restaurant.id)}}">Show Menu</a>
 </div>
@@ -37,7 +38,7 @@
     <p class="color-theme-2">{{menuItem.description}}</p>
   </div>
   <div class="restaurant-section">
-    <p class="where-served">Served in: {{menuItem.restaurant.name}}</p>
+    <p class="where-served">Served in: {{menuItem.restaurant.name}}, {{menuItem.restaurant.address}}</p>
     <a class="menu-link accent-color-1" href="{{url_for('showMenu', restaurant_id = menuItem.restaurant.id)}}">Show Menu</a>
   </div>
 </div>

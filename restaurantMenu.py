@@ -162,7 +162,7 @@ def showRestaurantsJSON():
 def newRestaurant():
 
     if request.method == 'POST':
-        newItem = Restaurant(name = request.form['name'])
+        newItem = Restaurant(name = request.form['name'], address = request.form['address'])
         session.add(newItem)
         session.commit()
         flash('New restaurant created')
@@ -180,6 +180,9 @@ def editRestaurant(restaurant_id):
     if request.method == 'POST':
         if request.form['name'] != '':
             restaurant.name = request.form['name']
+
+        if request.form['address'] != '':
+            restaurant.name = request.form['address']
 
         session.add(restaurant)
         session.commit()
@@ -315,6 +318,10 @@ def searchResult():
         for restaurant in restaurants:
             if search_keyword_lower in restaurant.name.lower():
                 restaurants_found.append(restaurant)
+                continue
+            if restaurant.address:
+                if search_keyword_lower in restaurant.address.lower():
+                    restaurants_found.append(restaurant)
 
         menu_items_found = []
         menuItems = session.query(MenuItem).all()

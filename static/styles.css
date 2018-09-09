@@ -213,6 +213,10 @@ li {
   width: 100%;
 }
 
+.restaurant-address {
+  font-size: 0.75em;
+}
+
 .name-price-group {
   font-size: 1.25em;
 }
@@ -237,10 +241,6 @@ li {
   clear: both;
 }
 
-/*.restaurant-edit-delete {
-  width: 100%;
-}*/
-
 input[type=text],
 select,
 .details-group textarea {
@@ -262,11 +262,6 @@ select,
   .menu-link {
     width: 50%;
   }
-
-  /*.restaurant-edit-delete {
-    width: 50%;
-    text-align: right;
-  }*/
 }
 
 @media screen and (min-width: 550px) {
@@ -274,8 +269,7 @@ select,
     width: 60%;
   }
 
-  .menu-link/*,
-  .restaurant-edit-delete*/ {
+  .menu-link {
     width: 20%;
     text-align: right;
     margin-top: 1em;
@@ -295,8 +289,7 @@ select,
   }
 
   .restaurant-name,
-  .menu-link/*,
-  .restaurant-edit-delete*/ {
+  .menu-link {
     width: 100%;
     text-align: left;
     margin-top: 0;

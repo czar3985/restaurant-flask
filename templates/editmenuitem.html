@@ -3,6 +3,7 @@
 {% block body %}
 
 <h2>{{restaurantName}}</h2>
+<p>{{menuItem.restaurant.address}}</p>
 <h3>Edit menu item</h3>
 
 <form action="{{url_for('editMenuItem', restaurant_id = menuItem.restaurant_id, menu_id = menuItem.id )}}" method='POST'>
