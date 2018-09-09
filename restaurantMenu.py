@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from database_setup import Base, Restaurant, MenuItem, engine
+from database_setup import Base, Restaurant, MenuItem, User, engine
 
 from flask import session as login_session
 import random, string
@@ -36,6 +36,27 @@ def showLogin():
     state = ''.join(random.choice(string.ascii_letters + string.digits) for x in xrange(32))
     login_session['state'] = state
     return render_template('login.html', CLIENT_ID=CLIENT_ID, STATE=state)
+
+
+def createUser(login_session):
+    newUser = User(name = login_session['username'], email = login_session['email'], picture = login_session['picture'])
+    session.add(newUser)
+    session.commit()
+    user = session.query(User).filter_by(email = login_session['email']).one()
+    return user.id
+
+
+def getUserInfo(user_id):
+    user = session.query(User).filter_by(id = user_id).one()
+    return user
+
+
+def getUserID(email):
+    try:
+        user = session.query(User).filter_by(email = email).one()
+        return user.id
+    except:
+    return None
 
 
 @app.route('/gconnect', methods=['POST'])
@@ -164,7 +185,8 @@ def newRestaurant():
         return redirect(url_for('showLogin'))
 
     if request.method == 'POST':
-        newItem = Restaurant(name = request.form['name'], address = request.form['address'])
+        user = session.query(User).filter_by(email = login_session['email']).one()
+        newItem = Restaurant(name = request.form['name'], address = request.form['address'], user_id = user.id)
         session.add(newItem)
         session.commit()
         flash('New restaurant created')
@@ -259,7 +281,8 @@ def newMenuItem(restaurant_id):
                            restaurant_id = restaurant_id,
                            price = request.form['price'],
                            description = request.form['description'],
-                           course = request.form['course'])
+                           course = request.form['course'],
+                           user_id = restaurant.user_id)
         session.add(newItem)
         session.commit()
         flash('New menu item created')
