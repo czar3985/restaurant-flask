@@ -265,6 +265,7 @@ def showMenu(restaurant_id):
         if menuItem.course not in courseList:
             courseList.append(menuItem.course)
 
+    creator = getUserInfo(restaurant.user_id)
     if 'username' in login_session:
         if login_session['user_id'] == restaurant.user_id:
             return render_template('editablemenu.html',
@@ -273,7 +274,6 @@ def showMenu(restaurant_id):
                                    menuItems = menuItems,
                                    creator = creator)
 
-    creator = getUserInfo(restaurant.user_id)
     return render_template('menu.html',
                            restaurant = restaurant,
                            courseList = courseList,
