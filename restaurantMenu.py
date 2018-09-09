@@ -214,26 +214,15 @@ def showMenu(restaurant_id):
     if not menuItems:
         flash('There are currently no menu items for this restaurant.')
 
-    appetizers = []
-    entrees = []
-    desserts = []
-    beverages = []
+    courseList = []
     for menuItem in menuItems:
-        if menuItem.course == 'Appetizer':
-            appetizers.append(menuItem)
-        elif menuItem.course == 'Entree':
-            entrees.append(menuItem)
-        elif menuItem.course == 'Dessert':
-            desserts.append(menuItem)
-        elif menuItem.course == 'Beverage':
-            beverages.append(menuItem)
+        if menuItem.course not in courseList:
+            courseList.append(menuItem.course)
 
     return render_template('menu.html',
                            restaurant = restaurant,
-                           appetizers = appetizers,
-                           entrees = entrees,
-                           desserts = desserts,
-                           beverages = beverages)
+                           courseList = courseList,
+                           menuItems = menuItems)
 
 
 @app.route('/restaurant/<int:restaurant_id>/menu/JSON/')
@@ -285,7 +274,8 @@ def editMenuItem(restaurant_id, menu_id):
         if request.form['description'] != '':
             menuItem.description = request.form['description']
 
-        menuItem.course = request.form['course']
+        if request.form['course'] != '':
+            menuItem.course = request.form['course']
 
         session.add(menuItem)
         session.commit()

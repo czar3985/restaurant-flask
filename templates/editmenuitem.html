@@ -17,31 +17,8 @@
     <textarea id="description" name='description'>{{menuItem.description}}</textarea>
 
     <label for="course">Course</label>
-    <select id="course" name="course">
-      {% if menuItem.course == 'Appetizer' %}
-      <option value="Appetizer" selected>Appetizer</option>
-      {%else%}
-      <option value="Appetizer">Appetizer</option>
-      {% endif %}
+    <input type='text' id="course" name='course' value="{{menuItem.course}}" required>
 
-      {% if menuItem.course == 'Entree' %}
-      <option value="Entree" selected>Entree</option>
-      {%else%}
-      <option value="Entree">Entree</option>
-      {% endif %}
-
-      {% if menuItem.course == 'Dessert'%}
-      <option value="Dessert" selected>Dessert</option>
-      {% else %}
-      <option value="Dessert">Dessert</option>
-      {% endif %}
-
-      {%if menuItem.course =='Beverage'%}
-      <option value="Beverage" selected>Beverage</option>
-      {% else %}
-      <option value="Beverage">Beverage</option>
-      {% endif %}
-    </select>
   </div>
 
   <input class="save-button accent-color-2" type='submit' value='Save'>
