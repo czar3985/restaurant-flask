@@ -160,6 +160,8 @@ def showRestaurantsJSON():
 
 @app.route('/restaurant/new/', methods=['GET','POST'])
 def newRestaurant():
+    if 'username' not in login_session:
+        return redirect(url_for('showLogin'))
 
     if request.method == 'POST':
         newItem = Restaurant(name = request.form['name'], address = request.form['address'])
@@ -174,6 +176,8 @@ def newRestaurant():
 
 @app.route('/restaurant/<int:restaurant_id>/edit/', methods=['GET','POST'])
 def editRestaurant(restaurant_id):
+    if 'username' not in login_session:
+        return redirect(url_for('showLogin'))
 
     restaurant = session.query(Restaurant).filter_by(id = restaurant_id).one()
 
@@ -195,6 +199,8 @@ def editRestaurant(restaurant_id):
 
 @app.route('/restaurant/<int:restaurant_id>/delete/', methods=['GET','POST'])
 def deleteRestaurant(restaurant_id):
+    if 'username' not in login_session:
+        return redirect(url_for('showLogin'))
 
     restaurant = session.query(Restaurant).filter_by(id = restaurant_id).one()
 
@@ -245,6 +251,8 @@ def showMenuItemJSON(restaurant_id, menu_id):
 
 @app.route('/restaurant/<int:restaurant_id>/menu/new/', methods=['GET','POST'])
 def newMenuItem(restaurant_id):
+    if 'username' not in login_session:
+        return redirect(url_for('showLogin'))
 
     if request.method == 'POST':
         newItem = MenuItem(name = request.form['name'],
@@ -264,6 +272,8 @@ def newMenuItem(restaurant_id):
 
 @app.route('/restaurant/<int:restaurant_id>/menu/<int:menu_id>/edit/', methods=['GET','POST'])
 def editMenuItem(restaurant_id, menu_id):
+    if 'username' not in login_session:
+        return redirect(url_for('showLogin'))
 
     menuItem = session.query(MenuItem).filter_by(id = menu_id).one()
 
@@ -292,6 +302,8 @@ def editMenuItem(restaurant_id, menu_id):
 
 @app.route('/restaurant/<int:restaurant_id>/menu/<int:menu_id>/delete/', methods=['GET','POST'])
 def deleteMenuItem(restaurant_id, menu_id):
+    if 'username' not in login_session:
+        return redirect(url_for('showLogin'))
 
     menuItem = session.query(MenuItem).filter_by(id = menu_id).one()
 
