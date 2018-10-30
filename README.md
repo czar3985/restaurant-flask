@@ -8,7 +8,7 @@ _**This version of the restaurants application uses the Flask framework.**_
 
 ## Prerequisites
 
-1. python 2.7.x
+1. python 3.x
 2. sqlalchemy
 3. sqlite3
 4. flask

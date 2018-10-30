@@ -33,7 +33,10 @@ session = DBSession()
 @app.route('/restaurant/login/')
 def showLogin():
 	# Create anti-forgery state token
-    state = ''.join(random.choice(string.ascii_letters + string.digits) for x in xrange(32))
+
+    # Python 2 to Python 3 modification
+    # state = ''.join(random.choice(string.ascii_letters + string.digits) for x in xrange(32))
+    state = ''.join(random.choice(string.ascii_letters + string.digits) for x in range(32))
     login_session['state'] = state
     return render_template('login.html', CLIENT_ID=CLIENT_ID, STATE=state)
 
@@ -86,7 +89,9 @@ def gconnect():
     url = ('https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=%s'
            % access_token)
     h = httplib2.Http()
-    result = json.loads(h.request(url, 'GET')[1])
+    # Python 2 to Python 3 modification
+    # result = json.loads(h.request(url, 'GET')[1])
+    result = json.loads((h.request(url, 'GET')[1]).decode('utf-8'))
 
     # If there was an error in the access token info, abort.
     if result.get('error') is not None:
